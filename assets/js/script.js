@@ -1,5 +1,7 @@
 var getLiveEvent = function() {
-    console.log("function was called");
+
+  console.log("the function is running");
+   
   };
   
  getLiveEvent();
