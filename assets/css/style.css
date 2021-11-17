@@ -1,0 +1,23 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-color: white;
+}
+
+.container {
+    margin-top: 20rem;
+    display: flex;
+}
+
+
+header h1 {
+    background-color: black;
+    color: white;
+    margin-top: 0;
+    padding-left: 1.5rem;
+}
+
+
+.row {
+    display: flex;
+}
+
