@@ -1,41 +1,28 @@
 body {
-    font-family: Helvetica, Arial, sans-serif;
-    background: url("https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") no-repeat center center fixed;
-    background-repeat: no-repeat;
-    background-size: cover; 
+    background-image: url("../images/background.jpg");
+    background-color: white;
 }
 
-header {
-    font-family: "Pacifico";
-    text-align: center;
-    color: rgba(255, 255, 255, .75);
-    padding-top: 30px;
+.container {
+    display: flex;
+    margin-top: 20rem;
 }
 
-button {
-    border: none;
-    border-radius: 10px;
-    padding-bottom: 3px;
-    background: #7c7c7c4b;
+
+header h1 {
+    background-color: black;
     color: white;
+    margin-top: 0;
+    padding-left: 1.5rem;
 }
 
-input {
-    border: none;
-    border-radius: 10px;
-    height: 27px;
-    margin-right: 5px;
-    background: #7c7c7c4b;
-    padding: 5px;
-    color: white;
+
+.row {
+    display: flex;
 }
 
-.card {
-    background: #000000d0;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    text-align: start;
-    padding: 20px;
-    border-radius: 10px;
-}
+/* label underline focus color */
+   .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid black !important;
+    box-shadow: 0 1px 0 0 black !important;
+   }
