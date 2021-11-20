@@ -7,35 +7,81 @@ body {
 
 header {
     font-family: "Pacifico";
+    font-size: xx-large;
     text-align: center;
     color: rgba(255, 255, 255, .75);
-    padding-top: 30px;
+    padding-top: 75px;
+
+}
+
+header p {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: lighter;
+    font-size: small;
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
 
 button {
     border: none;
     border-radius: 10px;
-    padding-bottom: 3px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-right: 7px;
+    padding-left: 7px;
     background: #7c7c7c4b;
     color: white;
 }
 
+button:hover {
+    background: #7c7c7c9b; 
+}
+
+
 input {
+    font-size: small;
     border: none;
     border-radius: 10px;
-    height: 27px;
     margin-right: 5px;
     background: #7c7c7c4b;
     padding: 5px;
     color: white;
 }
 
+
 .card {
     background: #000000d0;
     color: white;
     justify-content: center;
     align-items: center;
-    text-align: start;
-    padding: 20px;
-    border-radius: 10px;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px;
+    width: 15%;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.search-card {
+    background: #000000d0;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: inherit;
+}
+
+.results-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
