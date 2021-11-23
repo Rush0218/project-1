@@ -5,18 +5,36 @@ var tasteApi = "427221-EventFin-KMIu1";
 var ticketApi = "WE75fBd7iGT7YVAkrBDaa39daiK3yUke"; 
 
 function fetchArtists(artist) {
-    
     var tasteUrl ="https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?q=" + artist + "&limit=10&apikey=" + tasteApi; 
     fetch(tasteUrl).then(function(response) {
         return response.json(); 
     }).then(function(data) { 
-        displayArtists(data); 
+        displayArtists(data, artist); 
     })
 }; 
 
-function displayArtists(data) {
+// var history = document.querySelector(“.search-history”);
+//     var list = document.querySelector(“.search-list”);
+//     var listItem = document.createElement(“button”);
+//     localStorage.setItem(“history”, artist);
+//     listItem.className = “search-again”
+//     listItem.textContent = localStorage.getItem(“history”);
+//     list.appendChild(listItem);
+//     history.setAttribute(“style”, “display: block”);
+
+function displayArtists(data, artist) {
+
+    var history = document.querySelector(".search-history"); 
+    var list = document.querySelector(".search-list"); 
+    var listItem = document.createElement("button"); 
+
+    localStorage.setItem("history", artist); 
+    listItem.textContent = localStorage.getItem("history"); 
+    list.appendChild(listItem); 
+    history.setAttribute("style", "display: block"); 
+
     var {Name} = data.Similar.Results[0]; 
-    document.querySelector(".result1").textContent = Name; 
+    document.querySelector(".result1").textContent = Name;
     fetchEvents(Name); 
 
     var {Name} = data.Similar.Results[1]; 
@@ -124,5 +142,3 @@ function search() {
 }; 
 
 searchbtn.addEventListener("click", search); 
-
-
