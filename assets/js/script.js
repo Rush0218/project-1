@@ -13,15 +13,6 @@ function fetchArtists(artist) {
     })
 }; 
 
-// var history = document.querySelector(“.search-history”);
-//     var list = document.querySelector(“.search-list”);
-//     var listItem = document.createElement(“button”);
-//     localStorage.setItem(“history”, artist);
-//     listItem.className = “search-again”
-//     listItem.textContent = localStorage.getItem(“history”);
-//     list.appendChild(listItem);
-//     history.setAttribute(“style”, “display: block”);
-
 function displayArtists(data, artist) {
 
     var history = document.querySelector(".search-history"); 
