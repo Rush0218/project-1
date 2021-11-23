@@ -118,6 +118,26 @@ function displayEvent2(data) {
     homeLink.appendChild(b); 
 }; 
 
+function displayEvent3(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event3").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link3"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage3"); 
+    homeLink.appendChild(b); 
+};
+
+
 
 function search() {
     fetchArtists(document.querySelector(".search-info").value); 
