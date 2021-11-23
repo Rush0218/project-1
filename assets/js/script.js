@@ -137,7 +137,157 @@ function displayEvent3(data) {
     homeLink.appendChild(b); 
 };
 
+function displayEvent4(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event4").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link4"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage4"); 
+    homeLink.appendChild(b); 
+}; 
 
+function displayEvent(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event1").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link1"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage1"); 
+    homeLink.appendChild(b); 
+}; 
+
+function displayEvent5(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event5").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link5"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage5"); 
+    homeLink.appendChild(b); 
+}; 
+
+function displayEvent6(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event6").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link6"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage6"); 
+    homeLink.appendChild(b); 
+}; 
+
+function displayEvent7(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event7").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link7"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage7"); 
+    homeLink.appendChild(b); 
+}; 
+
+function displayEvent8(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event8").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link8"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage8"); 
+    homeLink.appendChild(b); 
+}; 
+
+function displayEvent9(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event9").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link9"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage9"); 
+    homeLink.appendChild(b); 
+}; 
+
+function displayEvent10(data) {
+    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
+    var { url } = data._embedded.attractions[0];  
+    document.querySelector("#event10").textContent = name; 
+    var a = document.createElement("a"); 
+    a.href = url; 
+    a.target = "_blank"; 
+    a.textContent = "Upcoming Events"; 
+    var linkOne = document.querySelector("#link10"); 
+    linkOne.appendChild(a); 
+    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
+    var b = document.createElement("a"); 
+    b.href = url; 
+    b.target = "_blank"; 
+    b.textContent="Homepage"; 
+    var homeLink = document.querySelector("#homepage10"); 
+    homeLink.appendChild(b); 
+}; 
 
 function search() {
     fetchArtists(document.querySelector(".search-info").value); 
