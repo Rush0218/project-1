@@ -3,26 +3,119 @@ body {
     background-color: white;
 }
 
-.container {
-    display: flex;
-    margin-top: 20rem;
+header {
+    font-family: "Pacifico";
+    font-size: xx-large;
+    text-align: center;
+    color: rgba(255, 255, 255, .75);
+    padding-top: 75px;
+
 }
 
+header p {
+    font-family: "Pacifico";
+    font-weight: lighter;
+    font-size: 1rem;
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
 
-header h1 {
-    background-color: black;
+button {
+    border: none;
+    border-radius: 10px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    padding-right: 7px;
+    padding-left: 7px;
+    background: #7c7c7c4b;
     color: white;
     margin-top: 0;
     padding-left: 1.5rem;
 }
 
-
-.row {
-    display: flex;
+button:hover {
+    background: #7c7c7c8b; 
 }
 
-/* label underline focus color */
-   .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid black !important;
-    box-shadow: 0 1px 0 0 black !important;
-   }
+a:hover {
+    color: #888;
+}
+
+input {
+    font-size: small;
+    border: none;
+    border-radius: 10px;
+    margin-right: 5px;
+    background: #7c7c7c4b;
+    padding: 5px;
+    color: white;
+}
+
+h4 {
+    padding-bottom: 10px;
+}
+
+
+.card {
+    background: #000000d0;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+    margin: 2rem;
+    width: 15%;
+    font-weight: lighter;
+    transition: 0.5s linear;
+}
+
+.card:hover {
+    transform: scale(1.5);
+}
+
+.card h4 {
+    font-weight: lighter;
+    font-size: 1.8vw;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.search-card {
+    background: #000000d0;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: inherit;
+}
+
+.results-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-size: 1.3vw;
+    
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width: 575px) {
+    .results-container {
+      font-size: 3vw;
+      
+    }
+    .card h4 {
+        font-size: 3.5vw;
+    }
+
+    .results-container {
+        padding: 1vw;
+    }
+  }
