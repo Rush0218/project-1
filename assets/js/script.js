@@ -5,7 +5,8 @@ var tasteApi = "427221-EventFin-KMIu1";
 var ticketApi = "WE75fBd7iGT7YVAkrBDaa39daiK3yUke"; 
 
 function fetchArtists(artist) {
-    var tasteUrl = "https://tastedive.com/api/similar?q=" + artist + "&limit=10&apikey=" + tasteApi; 
+    
+    var tasteUrl ="https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?q=" + artist + "&limit=10&apikey=" + tasteApi; 
     fetch(tasteUrl).then(function(response) {
         return response.json(); 
     }).then(function(data) { 
