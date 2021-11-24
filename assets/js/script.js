@@ -3,7 +3,7 @@ var searchResults = document.querySelector(".results-container");
 var tasteApi = "427221-EventFin-KMIu1"; 
 var ticketApi = "WE75fBd7iGT7YVAkrBDaa39daiK3yUke"; 
 
-
+//Fetching artists fom the tastedive API
 function fetchArtists(artist) {
     var tasteUrl ="https://tastedive.com/api/similar?q=" + artist + "&limit=10&apikey=" + tasteApi;
     fetch(tasteUrl).then(function(response) {
@@ -13,9 +13,10 @@ function fetchArtists(artist) {
       })
 }; 
 
-
+//Collecting results from the TasteDive API and passing it through the fetch functions for the Ticketmaster API
 function displayArtists(data, artist) {
 
+    //clearing the search bar
     function clearSearch(){
         document.getElementById("searchForm").value = "";
     };
@@ -24,6 +25,7 @@ function displayArtists(data, artist) {
     var list = document.querySelector(".search-list"); 
     var listItem = document.createElement("button"); 
 
+    //adding the search bar results to localStorage
     localStorage.setItem("history", artist); 
     listItem.textContent = localStorage.getItem("history"); 
     list.appendChild(listItem); 
@@ -54,7 +56,7 @@ function displayArtists(data, artist) {
 
     clearSearch();
 };
-//fetch functions
+//Fetch functions for Ticketmaster API
 function fetchEvents(artist) {
     var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
     fetch(ticketUrl).then(function(response) {
@@ -106,7 +108,7 @@ function fetchEvents5(artist) {
 }; 
 
 
-//display functions
+//Display functions for genre, upcoming events link, and homepage link
 function displayEvent(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  

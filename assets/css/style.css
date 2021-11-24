@@ -1,7 +1,9 @@
+/*adding background image */
 body {
     background-image: url("../images/background.jpg");
     background-color: white;
 }
+
 
 header {
     font-family: "Pacifico";
@@ -20,6 +22,7 @@ header p {
     padding-bottom: 10px;
 }
 
+/*styling the search button*/
 button {
     border: none;
     border-radius: 10px;
