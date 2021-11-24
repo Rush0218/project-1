@@ -153,25 +153,6 @@ function displayEvent4(data) {
     homeLink.appendChild(b); 
 }; 
 
-function displayEvent(data) {
-    var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
-    var { url } = data._embedded.attractions[0];  
-    document.querySelector("#event1").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
-    a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link1"); 
-    linkOne.appendChild(a); 
-    var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
-    b.href = url; 
-    b.target = "_blank"; 
-    b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage1"); 
-    homeLink.appendChild(b); 
-}; 
-
 function displayEvent5(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
