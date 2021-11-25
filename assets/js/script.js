@@ -9,12 +9,12 @@ function fetchArtists(artist) {
     fetch(tasteUrl).then(function(response) {
         return response.json(); 
     }).then(function(data) { 
-        displayArtists(data, artist); 
+        displayArtists(data); 
+        searchHistory(artist); 
     })
 }; 
 
-function displayArtists(data, artist) {
-
+function searchHistory(artist) {
     var history = document.querySelector(".search-history"); 
     var list = document.querySelector(".search-list"); 
     var listItem = document.createElement("button"); 
@@ -23,6 +23,10 @@ function displayArtists(data, artist) {
     listItem.textContent = localStorage.getItem("history"); 
     list.appendChild(listItem); 
     history.setAttribute("style", "display: block"); 
+}
+
+
+function displayArtists(data) {
 
     var {Name} = data.Similar.Results[0]; 
     document.querySelector(".result1").textContent = Name;
@@ -34,32 +38,38 @@ function displayArtists(data, artist) {
 
     var {Name} = data.Similar.Results[2]; 
     document.querySelector(".result3").textContent = Name; 
+    fetchEvents3(Name); 
     
     var {Name} = data.Similar.Results[3]; 
     document.querySelector(".result4").textContent = Name; 
+    fetchEvents4(Name); 
 
     var {Name} = data.Similar.Results[4]; 
     document.querySelector(".result5").textContent = Name; 
+    fetchEvents5(Name); 
 
     var {Name} = data.Similar.Results[5]; 
     document.querySelector(".result6").textContent = Name; 
+    fetchEvents6(Name); 
 
     var {Name} = data.Similar.Results[6]; 
     document.querySelector(".result7").textContent = Name; 
+    fetchEvents7(Name); 
 
     var {Name} = data.Similar.Results[7]; 
     document.querySelector(".result8").textContent = Name; 
+    fetchEvents8(Name); 
 
     var {Name} = data.Similar.Results[8]; 
     document.querySelector(".result9").textContent = Name; 
+    fetchEvents9(Name); 
 
     var {Name} = data.Similar.Results[9]; 
     document.querySelector(".result10").textContent = Name; 
+    // fetchEvents10(Name); 
  
     searchResults.setAttribute("style", "display:flex"); 
 }
-
-
 
 
 
@@ -84,6 +94,89 @@ function fetchEvents2(artist) {
         displayEvent2(data); 
     })
 }; 
+
+function fetchEvents3(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent3(data); 
+    })
+}; 
+
+function fetchEvents4(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent4(data); 
+    })
+}; 
+
+function fetchEvents5(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent5(data); 
+    })
+}; 
+
+function fetchEvents6(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent6(data); 
+    })
+}; 
+
+function fetchEvents7(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent7(data); 
+    })
+}; 
+
+function fetchEvents8(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent8(data); 
+    })
+}; 
+
+function fetchEvents9(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent9(data); 
+    })
+}; 
+
+function fetchEvents10(artist) {
+    var ticketUrl = "https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=" + artist + "&apikey=" + ticketApi;
+    fetch(ticketUrl).then(function(response) {
+        return response.json(); 
+    }).then(function(data) {
+        console.log(data); 
+        displayEvent10(data); 
+    })
+}; 
+
+
+
 
 
 
@@ -119,173 +212,105 @@ function displayEvent3(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event3").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link3"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link3"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage3")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage3"); 
-    homeLink.appendChild(b); 
-};
+}; 
 
 function displayEvent4(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event4").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link4"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link4"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage4")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage4"); 
-    homeLink.appendChild(b); 
 }; 
 
 function displayEvent5(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event5").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link5"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link5"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage5")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage5"); 
-    homeLink.appendChild(b); 
 }; 
 
 function displayEvent6(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event6").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link6"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link6"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage6")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage6"); 
-    homeLink.appendChild(b); 
 }; 
 
 function displayEvent7(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event7").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link7"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link7"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage7")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage7"); 
-    homeLink.appendChild(b); 
 }; 
 
 function displayEvent8(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event8").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link8"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link8"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage8")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage8"); 
-    homeLink.appendChild(b); 
 }; 
 
 function displayEvent9(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event9").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link9"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link9"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage9")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage9"); 
-    homeLink.appendChild(b); 
 }; 
 
 function displayEvent10(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
     document.querySelector("#event10").textContent = name; 
-    var a = document.createElement("a"); 
-    a.href = url; 
-    a.target = "_blank"; 
+    var a = document.querySelector("#link10"); 
+    a.href = url;  
     a.textContent = "Upcoming Events"; 
-    var linkOne = document.querySelector("#link10"); 
-    linkOne.appendChild(a); 
     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-    var b = document.createElement("a"); 
+    var b = document.querySelector("#homepage10")
     b.href = url; 
-    b.target = "_blank"; 
     b.textContent="Homepage"; 
-    var homeLink = document.querySelector("#homepage10"); 
-    homeLink.appendChild(b); 
 }; 
-
-// function displayEvent2(data) {
-//     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
-//     var { url } = data._embedded.attractions[0];  
-//     document.querySelector("#event2").textContent = name; 
-//     var a = document.createElement("a"); 
-//     a.href = url; 
-//     a.target = "_blank"; 
-//     a.textContent = "Upcoming Events"; 
-//     var linkOne = document.querySelector("#link2"); 
-//     linkOne.appendChild(a); 
-//     var { url } = data._embedded.attractions[0].externalLinks.homepage[0]; 
-//     var b = document.createElement("a"); 
-//     b.href = url; 
-//     b.target = "_blank"; 
-//     b.textContent="Homepage"; 
-//     var homeLink = document.querySelector("#homepage2"); 
-//     homeLink.appendChild(b); 
-// }; 
-
 
 function search() {
     fetchArtists(document.querySelector(".search-info").value); 
