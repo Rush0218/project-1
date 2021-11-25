@@ -1,11 +1,11 @@
 var searchbtn = document.querySelector(".search-btn"); 
 var searchResults = document.querySelector(".results-container"); 
-var tasteApi = "427221-EventFin-KMIu1"; 
+var tasteApi = "427286-AshtonBr-YX6TIJPR"
 var ticketApi = "WE75fBd7iGT7YVAkrBDaa39daiK3yUke"; 
 
 //Fetching artists fom the tastedive API
 function fetchArtists(artist) {
-    var tasteUrl ="https://tastedive.com/api/similar?q=" + artist + "&limit=10&apikey=" + tasteApi;
+    var tasteUrl ="https://cors-anywhere.herokuapp.com/https://tastedive.com/api/similar?q=" + artist + "&limit=10&apikey=" + tasteApi;
     fetch(tasteUrl).then(function(response) {
         return response.json(); 
     }).then(function(data) { 
@@ -33,7 +33,7 @@ function displayArtists(data, artist) {
 
     var {Name} = data.Similar.Results[0]; 
     document.querySelector(".result1").textContent = Name;
-    fetchEvents(Name); 
+    fetchEvents(Name);
     
     var {Name} = data.Similar.Results[1]; 
     document.querySelector(".result2").textContent = Name; 
@@ -108,7 +108,7 @@ function fetchEvents5(artist) {
 }; 
 
 
-//Display functions for genre, upcoming events link, and homepage link
+//Display functions for genre, upcoming events
 function displayEvent(data) {
     var { name } = data._embedded.attractions[0].classifications[0].subGenre; 
     var { url } = data._embedded.attractions[0];  
